@@ -1,6 +1,6 @@
 'use strict';
 
-const AWS = require('aws-sdk');
+const DynamoDB = require('aws-sdk/clients/dynamodb');
 const helpers = require('./helpers');
 
 const TableName = 'thermostats';
@@ -13,7 +13,7 @@ class ThermostatRepository {
     get client() {
         if (!this._client) {
             const options = { region: 'eu-west-1' };
-            this._client = new AWS.DynamoDB.DocumentClient(options);
+            this._client = new DynamoDB.DocumentClient(options);
         }
         return this._client;
     }
