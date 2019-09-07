@@ -1,8 +1,8 @@
 const Handler = require('./Handler');
 
 class DiscoveryHandler extends Handler {
-    static handles(event) {
-        return Handler.namespaceFor(event) === 'Alexa.Discovery';
+    handles(event) {
+        return this.namespaceFor(event) === 'Alexa.Discovery';
     }
 
     async handle(event) {

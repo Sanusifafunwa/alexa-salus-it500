@@ -67,8 +67,21 @@ class Handler {
         return new AlexaResponseBuilder(this._logger).from(event);
     }
 
-    static namespaceFor(event) {
+    namespaceFor(event) {
         return ((event.directive || {}).header || {}).namespace;
+    }
+
+    shouldDefer(event) {
+        return event.directive.payload.defer || true;
+    }
+
+    handleImmediately(event) {
+        return !this.shouldDefer(event);
+    }
+
+    defer(event) {
+        event.directive.payload.defer = false;
+        // post event to topic
     }
 }
 

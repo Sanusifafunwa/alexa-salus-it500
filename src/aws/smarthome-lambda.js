@@ -12,9 +12,9 @@ exports.handler = async (event, context) => {
     const handlers = HandlerRegistry.all();
 
     for (let index = 0; index < handlers.length; index++) {
-        let handlerType = handlers[index];
-        if (handlerType.handles(event)) {
-            const handler = new handlerType(logger);
+        const handlerType = handlers[index];
+        const handler = new handlerType(logger);
+        if (handler.handles(event)) {
             return await handler.handle(event);
         }
     }

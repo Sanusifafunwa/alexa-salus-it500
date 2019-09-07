@@ -1,8 +1,8 @@
 const Handler = require('./Handler');
 
 class SetThermostatModeHandler extends Handler {
-    static handles(event) {
-        return Handler.namespaceFor(event) === 'Alexa.ThermostatController' &&
+    handles(event) {
+        return this.namespaceFor(event) === 'Alexa.ThermostatController' &&
             event.directive.header.name === 'SetThermostatMode';
     }
 

@@ -120,7 +120,7 @@ app.intent('TurnUpIntent', {
         service
     } = controlService(request);
     try {
-        const output = await service.turnUp();
+        const output = await service.turnUp(1.0);
         say(response, output, logger);
     } catch (e) {
         report(response, e, logger);
@@ -136,7 +136,7 @@ app.intent('TurnDownIntent', {
         service
     } = controlService(request);
     try {
-        const output = await service.turnDown();
+        const output = await service.turnDown(-1.0);
         say(response, output, logger);
     } catch (e) {
         report(response, e, logger);

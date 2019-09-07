@@ -4,7 +4,7 @@ class AdjustTargetTemperatureHandler extends Handler {
     handles(event) {
         return this.namespaceFor(event) === 'Alexa.ThermostatController' &&
             event.directive.header.name === 'AdjustTargetTemperature' &&
-            this.handleImmediately(event);
+            this.shouldDefer(event);
     }
 
     async handle(event) {
@@ -13,12 +13,12 @@ class AdjustTargetTemperatureHandler extends Handler {
             const service = this.createControlService(profile);
             let targetTempDelta = event.directive.payload.targetSetpointDelta.value;
 
-            let output = null;
-            if (targetTempDelta >= 0) {
-                output = await service.turnUp(targetTempDelta);
-            } else {
-                output = await service.turnDown(targetTempDelta);
+            const status = await service.status();
+            const output = {
+                targetTemperature: status.targetTemperature + targetTempDelta,
+                currentTemperature: status.currentTemperature
             }
+            this.defer(event);
 
             return this.responseFor(event)
                 .with.targetSetpoint(output.targetTemperature)

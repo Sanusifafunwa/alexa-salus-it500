@@ -156,7 +156,7 @@ describe('ThermostatService', async () => {
 
             const {
                 messages,
-            } = await target.object().turnUp();
+            } = await target.object().turnUp(1.0);
 
             expect(messages[0]).to.equal('The target temperature is now 16 degrees.');
         });
@@ -165,7 +165,7 @@ describe('ThermostatService', async () => {
             const target = createTarget();
             target.client.setTemperature(20);
 
-            await expect(target.object().turnUp())
+            await expect(target.object().turnUp(1.0))
                 .to.be.rejectedWith('The heating is already on.');
         });
     });
@@ -177,7 +177,7 @@ describe('ThermostatService', async () => {
 
             const {
                 messages,
-            } = await target.object().turnDown();
+            } = await target.object().turnDown(-1.0);
 
             expect(messages[0]).to.equal('The target temperature is now 14 degrees.');
         });
@@ -188,7 +188,7 @@ describe('ThermostatService', async () => {
 
             const {
                 messages,
-            } = await target.object().turnDown();
+            } = await target.object().turnDown(-1.0);
 
             expect(messages[0]).to.equal('The target temperature is now 24 degrees.');
             expect(messages[1]).to.equal('The heating is still on.');

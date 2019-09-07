@@ -1,8 +1,8 @@
 const Handler = require('./Handler');
 
 class AuthorizationHandler extends Handler {
-    static handles(event) {
-        return Handler.namespaceFor(event) === 'Alexa.Authorization';
+    handles(event) {
+        return this.namespaceFor(event) === 'Alexa.Authorization';
     }
 
     async handle(event) {

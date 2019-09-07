@@ -1,9 +1,10 @@
 const Handler = require('./Handler');
 
 class SetTargetTemperatureHandler extends Handler {
-    static handles(event) {
-        return Handler.namespaceFor(event) === 'Alexa.ThermostatController' &&
-            event.directive.header.name === 'SetTargetTemperature';
+    handles(event) {
+        return this.namespaceFor(event) === 'Alexa.ThermostatController' &&
+            event.directive.header.name === 'SetTargetTemperature' &&
+            this.handleImmediately(event);
     }
 
     async handle(event) {

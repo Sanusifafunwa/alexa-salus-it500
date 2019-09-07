@@ -1,8 +1,8 @@
 const Handler = require('./Handler');
 
 class ReportStateHandler extends Handler {
-    static handles(event) {
-        return Handler.namespaceFor(event) === 'Alexa' &&
+    handles(event) {
+        return this.namespaceFor(event) === 'Alexa' &&
             event.directive.header.name === 'ReportState';
     }
 

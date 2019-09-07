@@ -1,7 +1,7 @@
 const Handler = require('./Handler');
 
 class DefaultHandler extends Handler {
-    static handles(event) {
+    handles(event) {
         return true;
     }
 

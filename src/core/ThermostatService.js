@@ -67,7 +67,7 @@ class ThermostatService extends Service {
         }
     }
 
-    async turnUp() {
+    async turnUp(tempDelta) {
         this._logger.debug('Turning up...');
         const client = await this.login();
 
@@ -80,7 +80,7 @@ class ThermostatService extends Service {
                 throw 'The heating is already on.';
             }
 
-            const t = device.targetTemperature + 1.0;
+            const t = device.targetTemperature + tempDelta;
             await client.setTemperature(t);
             const updatedDevice = await client.device();
 
@@ -98,7 +98,7 @@ class ThermostatService extends Service {
         }
     }
 
-    async turnDown() {
+    async turnDown(tempDelta) {
         this._logger.debug('Turning down...');
         const client = await this.login();
         try {
@@ -106,7 +106,7 @@ class ThermostatService extends Service {
             const device = await client.device();
             this.verifyContactable(device);
 
-            const t = device.targetTemperature - 1.0;
+            const t = device.targetTemperature + tempDelta;
             await client.setTemperature(t);
             const updatedDevice = await client.device();
 
