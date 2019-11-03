@@ -6,9 +6,9 @@ const ThermostatService = require('smartheat-core/core/ThermostatService');
 const WaterService = require('smartheat-core/core/WaterService');
 const DefaultsService = require('smartheat-core/core/DefaultsService');
 const Logger = require('smartheat-core/core/Logger');
-const DynamodbThermostatRepository = require('./ThermostatRepository');
-const helpers = require('./helpers');
-const AwsHoldStrategy = require('./HoldStrategy');
+const DynamodbThermostatRepository = require('smartheat-aws/aws/ThermostatRepository');
+const helpers = require('smartheat-aws/aws/helpers');
+const AwsHoldStrategy = require('smartheat-aws/aws/HoldStrategy');
 const Factory = require('smartheat-clients/clients/Factory');
 
 // Allow this module to be reloaded by hotswap when changed

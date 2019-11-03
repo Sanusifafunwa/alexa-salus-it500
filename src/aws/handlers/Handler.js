@@ -1,14 +1,14 @@
 const DefaultThermostatRepository = require('smartheat-core/core/ThermostatRepository');
 const ThermostatService = require('smartheat-core/core/ThermostatService');
 const DefaultHoldStrategy = require('smartheat-core/core/HoldStrategy');
-const DynamodbThermostatRepository = require('../ThermostatRepository');
-const AwsHoldStrategy = require('../HoldStrategy');
+const DynamodbThermostatRepository = require('smartheat-aws/aws/ThermostatRepository');
+const AwsHoldStrategy = require('smartheat-aws/aws/HoldStrategy');
 const SetTemperatureStrategy = require('../DeferredSetTemperatureStrategy');
 const {
     ProfileGateway,
     MockProfileGateway
-} = require('../ProfileGateway');
-const helpers = require('../helpers');
+} = require('smartheat-aws/aws/ProfileGateway');
+const helpers = require('smartheat-aws/aws/helpers');
 const Factory = require('smartheat-clients/clients/Factory');
 const AlexaResponseBuilder = require('../AlexaResponseBuilder');
 
