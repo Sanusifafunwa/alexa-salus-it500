@@ -1,4 +1,4 @@
-const AWS = require('aws-sdk');
+const AWS = require('aws-sdk/clients/sns');
 
 /**
  * Publishes a message to an SNS topic rather than set
@@ -11,7 +11,7 @@ class DeferredSetTemperatureStrategy {
     constructor(logger, event) {
         this._logger = logger;
         this._event = event;
-        this._publisher = new AWS.SNS({
+        this._publisher = new SNS({
             apiVersion: '2010-03-31'
         });
     }
