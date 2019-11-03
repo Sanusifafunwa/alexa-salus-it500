@@ -1,4 +1,4 @@
-const AWS = require('aws-sdk/clients/sns');
+const SNS = require('aws-sdk/clients/sns');
 
 /**
  * Publishes a message to an SNS topic rather than set
