@@ -1,12 +1,12 @@
-const ThermostatService = require('../core/ThermostatService');
-const DefaultsService = require('../core/DefaultsService');
+const ThermostatService = require('smartheat-core/core/ThermostatService');
+const DefaultsService = require('smartheat-core/core/DefaultsService');
 const AwsHoldStrategy = require('../aws/HoldStrategy');
-const DefaultHoldStrategy = require('../core/HoldStrategy');
-const Logger = require('../core/Logger');
+const DefaultHoldStrategy = require('smartheat-core/core/HoldStrategy');
+const Logger = require('smartheat-core/core/Logger');
 const AwsThermostatRepository = require('../aws/ThermostatRepository');
-const DefaultThermostatRepository = require('../core/ThermostatRepository');
-const Factory = require('../thermostats/Factory');
-const SetTemperatureStrategy = require('../core/SetTemperatureStrategy');
+const DefaultThermostatRepository = require('smartheat-core/core/ThermostatRepository');
+const Factory = require('smartheat-clients/clients/Factory');
+const SetTemperatureStrategy = require('smartheat-core/core/SetTemperatureStrategy');
 
 const logger = new Logger(Logger.DEBUG);
 

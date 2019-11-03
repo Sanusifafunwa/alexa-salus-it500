@@ -1,15 +1,15 @@
 const alexa = require('alexa-app');
+const DefaultThermostatRepository = require('smartheat-core/core/ThermostatRepository');
+const DefaultHoldStrategy = require('smartheat-core/core/HoldStrategy');
+const SetTemperatureStrategy = require('smartheat-core/core/SetTemperatureStrategy');
+const ThermostatService = require('smartheat-core/core/ThermostatService');
+const WaterService = require('smartheat-core/core/WaterService');
+const DefaultsService = require('smartheat-core/core/DefaultsService');
+const Logger = require('smartheat-core/core/Logger');
 const DynamodbThermostatRepository = require('./ThermostatRepository');
-const DefaultThermostatRepository = require('../core/ThermostatRepository');
-const AwsHoldStrategy = require('./HoldStrategy');
-const DefaultHoldStrategy = require('../core/HoldStrategy');
-const SetTemperatureStrategy = require('../core/SetTemperatureStrategy');
-const ThermostatService = require('../core/ThermostatService');
-const WaterService = require('../core/WaterService');
-const DefaultsService = require('../core/DefaultsService');
-const Logger = require('../core/Logger');
 const helpers = require('./helpers');
-const Factory = require('../thermostats/Factory');
+const AwsHoldStrategy = require('./HoldStrategy');
+const Factory = require('smartheat-clients/clients/Factory');
 
 // Allow this module to be reloaded by hotswap when changed
 module.change_code = 0;

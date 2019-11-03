@@ -26,7 +26,7 @@ const handler = async (event) => {
     // let userId = process.env.ALEXA_USER_ID;
     // let service = controlService(userId);
     try {
-        let messages = [ `You have asked to turn the heating ${onOff} for ${duration}` ]; // await service.turn(onOff, duration);
+        let messages = [`You have asked to turn the heating ${onOff} for ${duration}`]; // await service.turn(onOff, duration);
         return {
             fulfillmentText: say(messages)
         };

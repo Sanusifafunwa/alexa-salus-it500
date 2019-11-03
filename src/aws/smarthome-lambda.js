@@ -1,6 +1,6 @@
 'use strict';
 
-const Logger = require('../core/Logger');
+const Logger = require('smartheat-core/core/Logger');
 const HandlerRegistry = require('./HandlerRegistry');
 
 const logger = new Logger(process.env.LOG_LEVEL || Logger.DEBUG);
